@@ -1,3 +1,4 @@
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -18,6 +19,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgChartsModule } from 'ng2-charts';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdvancedProfileComponent } from './components/advanced-profile/advanced-profile.component';
@@ -27,6 +29,7 @@ import { BreakUpInfoComponent } from './components/break-up-info/break-up-info.c
 import { BreakUpTableComponent } from './components/break-up-table/break-up-table.component';
 import { CreateProfileModalComponent } from './components/create-profile-modal/create-profile-modal.component';
 import { DetailModalComponent } from './components/detail-modal/detail-modal.component';
+import { DetailsPanelComponent } from './components/details-panel/details-panel.component';
 import { DoughnutGraphComponent } from './components/doughnut-graph/doughnut-graph.component';
 import { FoodInputFieldComponent } from './components/food-input-field/food-input-field.component';
 import { FoodItemPanelComponent } from './components/food-item-panel/food-item-panel.component';
@@ -37,8 +40,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { HelpButtonComponent } from './components/help-button/help-button.component';
 import { ImportModalComponent } from './components/import-modal/import-modal.component';
 import { IndividualMenuComponent } from './components/individual-menu/individual-menu.component';
+import { LoadingBubblesComponent } from './components/loading-bubbles/loading-bubbles.component';
 import { MainComponentComponent } from './components/main-component/main-component.component';
 import { NameProfileComponent } from './components/name-profile/name-profile.component';
+import { NicknameModalComponent } from './components/nickname-modal/nickname-modal.component';
 import { OcrParseReviewComponent } from './components/ocr-parse-review/ocr-parse-review.component';
 import { ProfileDragPreviewComponent } from './components/profile-drag-preview/profile-drag-preview.component';
 import { ProfileListComponent } from './components/profile-list/profile-list.component';
@@ -52,10 +57,6 @@ import { DarkColorDirective } from './directives/dark-color.directive';
 import { DragDropDirective } from './directives/drag-drop.directive';
 import { InputClickSelectDirective } from './directives/input-click-select.directive';
 import { HelpDialogModule } from './help-dialog/help-dialog.module';
-import { ToastrModule } from 'ngx-toastr';
-import { DetailsPanelComponent } from './components/details-panel/details-panel.component';
-import { NicknameModalComponent } from './components/nickname-modal/nickname-modal.component';
-import { LoadingBubblesComponent } from './components/loading-bubbles/loading-bubbles.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,8 +93,8 @@ import { LoadingBubblesComponent } from './components/loading-bubbles/loading-bu
     BillImagePreviewComponent,
 
     WebsiteMovedDialogComponent,
-      NicknameModalComponent,
-      LoadingBubblesComponent,
+    NicknameModalComponent,
+    LoadingBubblesComponent,
   ],
   imports: [
     BrowserModule,
@@ -101,6 +102,7 @@ import { LoadingBubblesComponent } from './components/loading-bubbles/loading-bu
     FormsModule,
     NgChartsModule,
     ReactiveFormsModule,
+    ClipboardModule,
     DragDropModule,
     MatMenuModule,
     MatTooltipModule,
@@ -115,8 +117,8 @@ import { LoadingBubblesComponent } from './components/loading-bubbles/loading-bu
     ImageCropperModule,
     HelpDialogModule,
     ToastrModule.forRoot({
-    timeOut: 1600,
-  }),
+      timeOut: 1600,
+    }),
   ],
   providers: [
     {

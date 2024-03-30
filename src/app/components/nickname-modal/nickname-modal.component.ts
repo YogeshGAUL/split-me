@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nickname-modal',
@@ -11,6 +12,7 @@ export class NicknameModalComponent {
   angForm!: FormGroup;
   constructor(
     private fb: FormBuilder,
+    private router: Router,
     public dialogRef: MatDialogRef<NicknameModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: string
   ) {
@@ -24,8 +26,6 @@ export class NicknameModalComponent {
   }
   fetchNicknameFromStorage() {
     let nickname = localStorage.getItem('nickname');
-    console.log(nickname);
-    
     if (nickname != null) {
       this.angForm.patchValue({
         name: nickname,
@@ -33,6 +33,10 @@ export class NicknameModalComponent {
       this.angForm.markAsDirty();
       this.angForm.markAllAsTouched();
     }
+  }
+
+  copyRoomURL() {
+    return location.host + this.router.url;
   }
 
   submitForm() {

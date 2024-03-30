@@ -30,7 +30,7 @@ export class MainComponentComponent implements OnInit {
     if (roomId) {
       //check user id exist
       let dialogRef = this.dialog.open(NicknameModalComponent, {
-        width: '350px',
+        width: '400px',
         data: roomId,
         disableClose: true,
         panelClass: 'split-me-modal',

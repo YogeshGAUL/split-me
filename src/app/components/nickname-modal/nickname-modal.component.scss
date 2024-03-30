@@ -6,15 +6,25 @@
   justify-content: center;
   align-items: center;
   margin-top: 16px;
-  img {
+  .title-icon {
     filter: $theme-filter;
     width: 40px;
   }
   .room {
     font-size: 1.1rem;
-    .room-id{
-        color: rgb(255, 218, 117);
-
+    cursor: pointer;
+    .room-id {
+      color: rgb(255, 218, 117);
+    }
+    img {
+      width: 20px;
+      margin-left: 4px;
+    }
+    &:hover {
+      img {
+        filter: brightness(2);
+        transform: scale(1.1);
+      }
     }
   }
   .desc {

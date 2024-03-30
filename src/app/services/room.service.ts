@@ -11,8 +11,8 @@ import { Action } from '../classes/constants';
 })
 export class RoomService {
   roomStatus: string = 'idle';
-  private apiUrl = 'https://node-sharehub.onrender.com'; // Update with your Node.js server URL
-  //private apiUrl = 'http://localhost:3000';
+  //private apiUrl = 'https://node-sharehub.onrender.com'; // Update with your Node.js server URL
+  private apiUrl = 'http://localhost:3000';
   roomId: string = '';
   constructor(
     private http: HttpClient,

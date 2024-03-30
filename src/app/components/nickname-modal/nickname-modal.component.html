@@ -1,9 +1,11 @@
 <!-- Modal HTML -->
 <div class="title">
-  <img src="assets/icons/group-icon.svg" alt="" />
-  <span class="room"
-    >Room : <span class="room-id">{{ data }}</span></span
-  >
+  <img class="title-icon" src="assets/icons/group-icon.svg" alt="" />
+  <span class="room" matTooltip="Copy Room URL" matTooltipPosition="right" [cdkCopyToClipboard]="copyRoomURL()"
+    >Room :
+    <span class="room-id"
+      >{{ data }} <img src="assets/icons/copy-icon.svg" /></span
+  ></span>
   <p class="desc lead">
     Join your collaborative bill-splitting room by toss in your nickname
   </p>
