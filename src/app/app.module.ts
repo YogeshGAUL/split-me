@@ -1,6 +1,6 @@
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {
@@ -54,6 +54,13 @@ import { InputClickSelectDirective } from './directives/input-click-select.direc
 import { HelpDialogModule } from './help-dialog/help-dialog.module';
 import { ToastrModule } from 'ngx-toastr';
 import { DetailsPanelComponent } from './components/details-panel/details-panel.component';
+import { StoreModule } from '@ngrx/store';
+import { rootReducer } from "./store/root-state";
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { PaletteEffects } from './store/palette/palette.effects';
+
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -113,6 +120,9 @@ import { DetailsPanelComponent } from './components/details-panel/details-panel.
     ToastrModule.forRoot({
     timeOut: 1600,
   }),
+    StoreModule.forRoot(rootReducer, {}),
+    EffectsModule.forRoot([PaletteEffects]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   providers: [
     {
